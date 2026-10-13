@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="">
+  <title>Category - Aking Forum</title>
+  <link rel="icon" href="Screenshot 2026-10-13 192927.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main" class="wrap">
+    <section data-detail="/api/categories/{id}">
+      <h1 data-field="name"></h1>
+      <p data-field="description"></p>
+      <p><a class="btn" href="threadnew.html">New thread</a></p>
+    </section>
+
+    <section aria-labelledby="threads-heading">
+      <h2 id="threads-heading">Threads</h2>
+      <ul class="list" data-list="/api/categories/{id}/threads">
+        <template>
+          <li class="card thread">
+            <img class="avatar" src="Screenshot 2026-10-13 192901.png" data-src="author_avatar" alt="" width="48" height="48">
+            <div>
+              <h3><a data-href="Thread.html?id={id}" data-field="title"></a></h3>
+              <p class="meta">
+                by <a data-href="profile.html?id={author_id}" data-field="author"></a>,
+                <span data-field="last_activity"></span>
+              </p>
+            </div>
+            <span class="badge"><span data-field="reply_count"></span> replies</span>
+          </li>
+        </template>
+      </ul>
+      <p class="empty" hidden>No threads in this category yet.</p>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

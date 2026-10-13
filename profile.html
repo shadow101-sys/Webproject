@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="">
+  <title>Profile - Aking Forum</title>
+  <link rel="icon" href="Screenshot 2026-10-13 192927.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main" class="wrap">
+    <section class="card post" data-detail="/api/users/{id}">
+      <img class="avatar avatar-lg" src="9039ffad-adc3-4b4b-88cf-a056183a6156.jpg" data-src="avatar" alt="Profile picture" width="120" height="120">
+      <div>
+        <h1 data-field="username"></h1>
+        <p class="meta">Joined <span data-field="joined"></span></p>
+        <p class="post-body" data-field="bio"></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="user-threads-heading">
+      <h2 id="user-threads-heading">Threads</h2>
+      <ul class="list" data-list="/api/users/{id}/threads">
+        <template>
+          <li class="card thread">
+            <div>
+              <h3><a data-href="Thread.html?id={id}" data-field="title"></a></h3>
+              <p class="meta">in <span data-field="category"></span>, <span data-field="last_activity"></span></p>
+            </div>
+            <span class="badge"><span data-field="reply_count"></span> replies</span>
+          </li>
+        </template>
+      </ul>
+      <p class="empty" hidden>No threads yet.</p>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

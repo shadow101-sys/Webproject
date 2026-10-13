@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="">
+  <title>Settings - Aking Forum</title>
+  <link rel="icon" href="Screenshot 2026-10-13 192927.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main" class="wrap">
+    <h1>Profile settings</h1>
+    <form data-api="/api/settings" data-detail="/api/users/me" enctype="multipart/form-data">
+      <div class="field">
+        <img id="avatar-preview" class="avatar avatar-lg" src="9039ffad-adc3-4b4b-88cf-a056183a6156.jpg" data-src="avatar" alt="Current profile picture" width="120" height="120">
+      </div>
+      <div class="field">
+        <label for="avatar">Profile picture</label>
+        <input id="avatar" name="avatar" type="file" accept="image/png,image/jpeg,image/webp" data-preview="avatar-preview">
+        <p class="hint">PNG, JPG, or WebP. Up to 2 MB.</p>
+      </div>
+      <div class="field">
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio" rows="4" maxlength="300" data-value="bio"></textarea>
+        <p class="hint">Up to 300 characters.</p>
+      </div>
+      <button type="submit">Save changes</button>
+      <p class="form-status" role="status"></p>
+    </form>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

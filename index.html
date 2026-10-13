@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="">
+  <title>Aking Forum</title>
+  <link rel="icon" href="Screenshot 2026-10-13 192927.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main" class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Welcome to Aking Forum</h1>
+        <p>Ask questions, share ideas, and join the conversation.</p>
+        <p class="actions">
+          <a class="btn" href="threadnew.html">Start a thread</a>
+          <a class="btn btn-ghost" href="Registration.html">Create an account</a>
+        </p>
+      </div>
+      <img src="9039ffad-adc3-4b4b-88cf-a056183a6156.jpg" alt="A member of the Aking Forum community" width="360" height="240">
+    </section>
+
+    <section aria-labelledby="categories-heading">
+      <h2 id="categories-heading">Categories</h2>
+      <ul class="list grid" data-list="/api/categories">
+        <template>
+          <li class="card">
+            <h3><a data-href="category.html?id={id}" data-field="name"></a></h3>
+            <p data-field="description"></p>
+          </li>
+        </template>
+      </ul>
+      <p class="empty" hidden>No categories yet.</p>
+    </section>
+
+    <section aria-labelledby="latest-heading">
+      <h2 id="latest-heading">Latest threads</h2>
+      <ul class="list" data-list="/api/threads/latest">
+        <template>
+          <li class="card thread">
+            <img class="avatar" src="Screenshot 2026-10-13 192901.png" data-src="author_avatar" alt="" width="48" height="48">
+            <div>
+              <h3><a data-href="Thread.html?id={id}" data-field="title"></a></h3>
+              <p class="meta">
+                by <a data-href="profile.html?id={author_id}" data-field="author"></a>
+                in <span data-field="category"></span>,
+                <span data-field="last_activity"></span>
+              </p>
+            </div>
+            <span class="badge"><span data-field="reply_count"></span> replies</span>
+          </li>
+        </template>
+      </ul>
+      <p class="empty" hidden>No threads yet. Be the first to start one.</p>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

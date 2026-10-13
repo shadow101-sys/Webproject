@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="">
+  <title>Register - Aking Forum</title>
+  <link rel="icon" href="Screenshot 2026-10-13 192927.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main" class="wrap">
+    <h1>Create an account</h1>
+    <form data-api="/api/register" data-success="Login.html">
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username"
+               minlength="3" maxlength="30" pattern="[A-Za-z0-9_]+" required>
+        <p class="hint">Letters, numbers, and underscores only.</p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="new-password"
+               minlength="10" maxlength="128" required>
+        <p class="hint">At least 10 characters.</p>
+      </div>
+      <div class="field">
+        <label for="password-confirm">Confirm password</label>
+        <input id="password-confirm" name="password_confirm" type="password" autocomplete="new-password"
+               minlength="10" maxlength="128" required>
+      </div>
+      <button type="submit">Create account</button>
+      <p class="form-status" role="status"></p>
+    </form>
+    <p>Already registered? <a href="Login.html">Log in</a>.</p>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="">
+  <title>Thread - Aking Forum</title>
+  <link rel="icon" href="Screenshot 2026-10-13 192927.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main" class="wrap">
+    <article class="card post" data-detail="/api/threads/{id}">
+      <img class="avatar" src="Screenshot 2026-10-13 192901.png" data-src="author_avatar" alt="" width="48" height="48">
+      <div>
+        <h1 data-field="title"></h1>
+        <p class="meta">
+          by <a data-href="profile.html?id={author_id}" data-field="author"></a>,
+          <span data-field="created"></span>
+        </p>
+        <p class="post-body" data-field="body"></p>
+      </div>
+    </article>
+
+    <section aria-labelledby="replies-heading">
+      <h2 id="replies-heading">Replies</h2>
+      <ol class="list" data-list="/api/threads/{id}/replies">
+        <template>
+          <li class="card post">
+            <img class="avatar" src="Screenshot 2026-10-13 192901.png" data-src="author_avatar" alt="" width="48" height="48">
+            <div>
+              <p class="meta">
+                <a data-href="profile.html?id={author_id}" data-field="author"></a>,
+                <span data-field="created"></span>
+              </p>
+              <p class="post-body" data-field="body"></p>
+            </div>
+          </li>
+        </template>
+      </ol>
+      <p class="empty" hidden>No replies yet.</p>
+    </section>
+
+    <section aria-labelledby="reply-heading">
+      <h2 id="reply-heading">Write a reply</h2>
+      <form data-api="/api/threads/{id}/replies" data-success="reload">
+        <div class="field">
+          <label for="reply-body">Your reply</label>
+          <textarea id="reply-body" name="body" rows="6" minlength="2" maxlength="5000" required></textarea>
+        </div>
+        <button type="submit">Post reply</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

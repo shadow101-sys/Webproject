@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="">
+  <title>New thread - Aking Forum</title>
+  <link rel="icon" href="Screenshot 2026-10-13 192927.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="main" class="wrap">
+    <h1>Start a new thread</h1>
+    <form data-api="/api/threads" data-success="index.html">
+      <div class="field">
+        <label for="category">Category</label>
+        <select id="category" name="category" data-list="/api/categories" required>
+          <option value="">Choose a category</option>
+          <template><option data-value="id" data-field="name"></option></template>
+        </select>
+      </div>
+      <div class="field">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" minlength="5" maxlength="150" required>
+      </div>
+      <div class="field">
+        <label for="body">Message</label>
+        <textarea id="body" name="body" rows="10" minlength="10" maxlength="10000" required></textarea>
+      </div>
+      <button type="submit">Post thread</button>
+      <p class="form-status" role="status"></p>
+    </form>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>
